@@ -1,0 +1,21 @@
+.buzzer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 700px;
+}
+.buzzer_button{
+    width: 100px;
+    height: 100px;
+}
+.buzzered_name_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.buzzered_names{
+    display: flex;
+    flex-wrap: wrap;
+}

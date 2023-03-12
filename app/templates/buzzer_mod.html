@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flask app</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/buzzer.css') }}">
+        <script src="{{ url_for('static', filename='scripts/buzzer.js') }}"></script>
+    </head>
+    <body onload="set_interval()">
+        <div class="buzzer">
+            <input class="buzzer_button" type="button" value="Reset" onclick="reset_button()">
+        </div>
+        <div class="buzzered_names">
+            {% for name in buzzered %}
+            <div class="buzzered_name_container">
+                <div class="buzzered_name">
+                    {{name}}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>

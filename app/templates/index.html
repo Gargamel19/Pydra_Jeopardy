@@ -6,9 +6,10 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
         <script src="{{ url_for('static', filename='scripts/index.js') }}"></script>
     </head>
-    <body>
+    <body onload="set_interval()">
         <h1>Hallo ich bin das template</h1>
         
+        <input type="text" name="link_mod" id="" value="{{ moderator['video-link'] }}">
         <dic class="settings full_width">
             <h2>Settings:</h2>
             <input type="button" value="generate_feld" onclick="generate_feld()">
@@ -17,11 +18,13 @@
         
         <div class="content">
             <div class="moderatorcam">
-                <h2>Moderatorcam</h2>
-    
+                <div class="mod_cam_container">
+                    <div class="dummy"></div>
+                    <embed class="mod_cam" src="{{ moderator['video-link'] }}">
+                    <a class="bottom-right text-over-cam">{{ moderator['name'] }}</a>
+                </div>
             </div>
             <div class="jeopardy-board">
-                <h2>Jeopardy-Board</h2>
                 <table>
                     <tr>
                         {% for row in rows %}
@@ -39,12 +42,16 @@
                         <td>
                             {% if feld[x][y] == 0 %}
                             <div class="feld_item feld_item_{{x}}_{{y}}">
-                                {{columns[x]}}
+                                <div class="content">
+                                    {{columns[x]}}
+                                </div>
                             </div>
                             {% endif %}
                             {% if feld[x][y] == 1 %}
                             <div class="feld_item played feld_item_{{x}}_{{y}}">
-                                {{columns[x]}}
+                                <div class="content">
+                                    {{columns[x]}}
+                                </div>
                             </div>
                             {% endif %}
                         </td>
@@ -53,6 +60,19 @@
                     {% endfor %}
                 </table>
             </div>
+        </div>
+
+        <div class="teilnehmer_cams">
+            {% for player in players %}
+            <div class="playercam">
+                <div class="player_cam_container">
+                    <div class="dummy"></div>
+                    <embed class="player_cam {{ player['name'] }}" src="{{ player['video-link'] }}">
+                        <a class="bottom-right text-over-cam">{{ player['name'] }}</a>
+                        <a class="bottom-left text-over-cam">{{ player['punkte'] }}</a>
+                </div>
+            </div>
+            {% endfor %}
         </div>
         
     </body>
