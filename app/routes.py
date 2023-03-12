@@ -17,9 +17,9 @@ def index():
 @app.route('/generate_feld', methods=["PUT"])
 def generate_feld():
     vars.feld = []
-    for _x in range(len(vars.rows)):
+    for _x in range(len(vars.columns)):
         list = []
-        for _y in range(len(vars.columns)):
+        for _y in range(len(vars.rows)):
             list.append(0)
         vars.feld.append(list)
     return redirect('/')

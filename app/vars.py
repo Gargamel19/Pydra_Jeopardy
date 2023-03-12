@@ -1,5 +1,5 @@
 rows=["Matt in x", "Gabeln", "Spieße", "Figurengewinne", "Fickungen", "Fickungen2"]
-columns=[100, 200, 300, 400, 500]
+columns=[100, 200, 300, 400, 500, 600]
 Moderator={
     "name": "Pydracor",
     "video-link": "https://vdo.ninja/?view=G3wApLj",
