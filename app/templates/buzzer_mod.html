@@ -7,17 +7,25 @@
         <script src="{{ url_for('static', filename='scripts/buzzer.js') }}"></script>
     </head>
     <body onload="set_interval()">
-        <div class="buzzer">
-            <input class="buzzer_button" type="button" value="Reset" onclick="reset_button()">
-        </div>
-        <div class="buzzered_names">
-            {% for name in buzzered %}
-            <div class="buzzered_name_container">
-                <div class="buzzered_name">
-                    {{name}}
-                </div>
+        <div class="button_space">
+            <h2>Buzzer</h2>
+            <div class="button">
+                <input class="reset_button" type="button" value="Reset" onclick="reset_button()">
             </div>
-            {% endfor %}
+            {% if buzzer_active %}
+            active: <input type="checkbox" name="buzzer_active" id="buzzer_active" onchange="change_buzzer_active()" checked>
+            {% else %}
+            active: <input type="checkbox" name="buzzer_active" id="buzzer_active" onchange="change_buzzer_active()">
+            {% endif %}
+            <div class="buzzered_names">
+                {% for name in buzzered %}
+                <div class="buzzered_name_container">
+                    <div class="buzzered_name">
+                        {{name}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
     </body>
 </html>

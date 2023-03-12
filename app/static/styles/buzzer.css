@@ -1,9 +1,15 @@
+.button_space{
+    width: 100%;
+    border-style: solid;
+    border-color: blueviolet;
+    border-radius: 2px;
+}
 .buzzer{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 700px;
+    height: 200px;
 }
 .buzzer_button{
     width: 100px;

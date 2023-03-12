@@ -44,6 +44,32 @@ function buzz(user_id){
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
     fetch('http://127.0.0.1:5000/buzz?user_id='+user_id, requestOptions);
+    button = document.getElementsByClassName("buzzer_button")[0]
+
+
+}
+
+function activate_buzzer(){
+
+    // Simple PUT request with a JSON body using fetch
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: 'Fetch PUT Request Example' })
+    };
+    fetch('http://127.0.0.1:5000/buzz/activate', requestOptions);
+
+}
+
+function deactivate_buzzer(){
+
+    // Simple PUT request with a JSON body using fetch
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: 'Fetch PUT Request Example' })
+    };
+    fetch('http://127.0.0.1:5000/buzz/deactivate', requestOptions);
 
 }
 
@@ -57,4 +83,13 @@ function reset_button(){
     };
     fetch('http://127.0.0.1:5000/buzz/reset', requestOptions);
 
+}
+
+function change_buzzer_active(){
+    buzzer_active = document.getElementById("buzzer_active")
+    if(!buzzer_active.checked){
+        deactivate_buzzer()
+    }else{
+        activate_buzzer()
+    }
 }

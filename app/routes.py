@@ -41,12 +41,22 @@ def button_by_user(user_id):
         return render_template("buzzer.html", player=player, buzzered=vars.Buzzered)
     else:
         if user_id == vars.Moderator["id"]:
-            return render_template("buzzer_mod.html", player=vars.Moderator, buzzered=vars.Buzzered)
+            return render_template("buzzer_mod.html", player=vars.Moderator, buzzered=vars.Buzzered, buzzer_active=vars.button_free)
         return "error", 404
     
 @app.route('/buzz/reset', methods=["PUT"])
 def reset_buzzer():
     vars.Buzzered = []
+    return "ok"
+
+@app.route('/buzz/deactivate', methods=["PUT"])
+def deactivate_buzzer():
+    vars.button_free = False
+    return "ok"
+
+@app.route('/buzz/activate', methods=["PUT"])
+def activate_buzzer():
+    vars.button_free = True
     return "ok"
     
 @app.route('/buzzes')
