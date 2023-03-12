@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flask app</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
+        <script src="{{ url_for('static', filename='scripts/index.js') }}"></script>
+    </head>
+    <body>
+        <h1>Hallo ich bin das template</h1>
+        
+        <dic class="settings full_width">
+            <h2>Settings:</h2>
+            <input type="button" value="generate_feld" onclick="generate_feld()">
+        </dic>
+
+        
+        <div class="content">
+            <div class="moderatorcam">
+                <h2>Moderatorcam</h2>
+    
+            </div>
+            <div class="jeopardy-board">
+                <h2>Jeopardy-Board</h2>
+                <table>
+                    <tr>
+                        {% for row in rows %}
+                            <td>
+                                <div class="rows_names">
+                                    {{row}}
+                                </div>
+                            </td>
+                        {% endfor %}
+                    </tr>
+                
+                    {% for x in range(feld|length) %}
+                    <tr>
+                        {% for y in range(feld[x]|length) %}
+                        <td>
+                            {% if feld[x][y] == 0 %}
+                            <div class="feld_item feld_item_{{x}}_{{y}}">
+                                {{columns[x]}}
+                            </div>
+                            {% endif %}
+                            {% if feld[x][y] == 1 %}
+                            <div class="feld_item played feld_item_{{x}}_{{y}}">
+                                {{columns[x]}}
+                            </div>
+                            {% endif %}
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        
+    </body>
+</html>
