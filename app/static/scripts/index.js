@@ -1,20 +1,11 @@
 function set_interval(){
     setInterval(refresh_buzzs, 500);
+    setInterval(refresh_texts, 500);
+    setInterval(refresh_if_text_show, 500);
+    setInterval(refresh_feld, 500)
 }
 
-function generate_feld(){
-
-    // Simple PUT request with a JSON body using fetch
-    const requestOptions = {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title: 'Fetch PUT Request Example' })
-    };
-    fetch('http://127.0.0.1:5000/generate_feld', requestOptions);
-
-}
-
-function make_divs(data){
+function make_divs_buzzed(data){
     
     player_cams = document.getElementsByClassName("player_cam")
     for (let i = 0; i < player_cams.length; i++) {
@@ -45,6 +36,86 @@ function refresh_buzzs(){
     };
     buzzered = fetch('http://127.0.0.1:5000/buzzes', requestOptions)
     .then((response) => response.json())
-    .then((data) => make_divs(data));
+    .then((data) => make_divs_buzzed(data));
 
+}
+
+function make_divs_player_stats_divs(data){
+    for (let i = 0; i < data.length; i++) {
+        document.getElementById("player_points_"+data[i]["name"]).innerHTML = data[i]["punkte"]
+        document.getElementById("player_text_"+data[i]["name"]).innerHTML = data[i]["text"]
+    }
+}
+
+function refresh_texts(){
+    const requestOptions = {
+        method: 'GET'
+    };
+    buzzered = fetch('http://127.0.0.1:5000/player', requestOptions)
+    .then((response) => response.json())
+    .then((data) => make_divs_player_stats_divs(data));
+}
+
+
+function make_divs_player_stats_divs_if_text_show(data){
+    if (data) {
+        texts = document.getElementsByClassName("player_text")
+        for (let i = 0; i < texts.length; i++) {
+            texts[i].classList.remove("unvisible")
+        }
+    }else{
+        texts = document.getElementsByClassName("player_text")
+        for (let i = 0; i < texts.length; i++) {
+            texts[i].classList.add("unvisible")
+        }
+    }
+}
+
+function refresh_if_text_show(){
+    const requestOptions = {
+        method: 'GET'
+    };
+    buzzered = fetch('http://127.0.0.1:5000/if_text_show', requestOptions)
+    .then((response) => response.json())
+    .then((data) => make_divs_player_stats_divs_if_text_show(data));
+}
+
+function set_visited(x, y){
+    const requestOptions = {
+        method: 'PUT'
+    };
+    buzzered = fetch('http://127.0.0.1:5000/visited?x='+x+'&y='+y, requestOptions)
+    question_x_y = document.getElementById("question_" + x + "_" + y)
+    question_x_y.classList.remove("unvisible")
+    td_x_y = document.getElementById("td_" + x + "_" + y)
+    td_x_y.setAttribute('onclick','close('+x+', '+y+')');
+}
+
+function close_question(x, y){
+    console.log("close "+ x + " , " + y);
+    question_x_y = document.getElementById("question_" + x + "_" + y)
+    question_x_y.classList.add("unvisible")
+}
+
+
+function make_feld(data){
+    for (let x = 0; x < data.length; x++) {
+        for (let y = 0; y < data.length; y++) {
+            feld_item = document.getElementById("feld_item_" + x + "_" + y)
+            if(data[x][y] == 0){
+                feld_item.classList.remove("played")
+            }else{
+                feld_item.classList.add("played")
+            }
+        }
+    }
+}
+
+function refresh_feld(){
+    const requestOptions = {
+        method: 'GET'
+    };
+    buzzered = fetch('http://127.0.0.1:5000/feld', requestOptions)
+    .then((response) => response.json())
+    .then((data) => make_feld(data));
 }

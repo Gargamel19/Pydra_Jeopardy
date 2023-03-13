@@ -1,6 +1,16 @@
+:root {
+    --panel_size: 500px;
+    --main_color: #ffa8c1;
+    --sec_color: #301f23;
+    
+    --played_main_color: #5f5f5f;
+    --played_sec_color: #e3e3e3;
+  }
+
 html,
 body {
-  margin: 1em;
+    margin: 0px;
+    padding: 0px;
 }
 
 .settings{
@@ -8,21 +18,37 @@ body {
     height: auto;
 }
 .content{
+    height: 1080px;
+    width: 1920px;
+}
+.upper_content{
     display: flex;
-    padding-top: 1em;
+    height: 750px;
 }
 .playercam{
     width: 24%;
 }
 .teilnehmer_cams{
     display: flex;
-    width: 100%;
+    width: 98%;
     justify-content: space-between;
     padding-top: 1em;
+    height: 230px;
+}
+.timer{
+    display: flex;
+    justify-content: center;
 }
 .moderatorcam{
+    width: 29%;
+    position: relative;
+}
+.timer{
+    font-size: 3em;
+}
+.mod_cam_container_contianer{
     display: flex;
-    width: 30%;
+    position: relative;
 }
 .jeopardy-board{
     display: block;
@@ -41,13 +67,14 @@ body {
     text-align: center;
     height: 30px;
     margin: 0.01em;
+    font-size: 1.5em;
 }
 .feld_item{
-    background-color: #ffa8c1;
-    color: #301f23;
+    background-color: var(--main_color);
+    color: var(--sec_color);
     text-align: center;
     border-radius: 6px;
-    border-color: #301f23;
+    border-color: var(--sec_color);
     border-style: solid;
     margin: 0.01em;
     height: 100px;
@@ -57,8 +84,8 @@ body {
     font-size: 3em;
 }
 .played{
-    background-color: #5f5f5f;
-    color: #e3e3e3;
+    background-color: var(--played_main_color);
+    color: var(--played_sec_color);
 }
 .mod_cam_container{
     display: inline-block;
@@ -87,7 +114,7 @@ body {
     border-radius: 6px;
     border-width: 3px;
     border-style: solid;
-    border-color: #301f23;
+    border-color: var(--sec_color);
 }
 .bottom-right {
     position: absolute;
@@ -99,13 +126,18 @@ body {
     bottom: 4px;
     left: 8px;
 }
+.top-left{
+    position: absolute;
+    top: 4px;
+    left: 8px;
+}
 .text-over-cam{
     background-color: #1f1e1f;
     color: #d2d2d2;
     padding: 0.5em;
 }
 .mod_name{
-    color: #e3e3e3;
+    color: var(--played_sec_color);
 }
 .player_cam{
     width: 100%;
@@ -118,10 +150,10 @@ body {
     border-radius: 6px;
     border-width: 3px;
     border-style: solid;
-    border-color: #301f23;
+    border-color: var(--sec_color);
 }
 .mod_name{
-    color: #e3e3e3;
+    color: var(--played_sec_color);
 }
 .first{
     border-color: green;
@@ -136,4 +168,42 @@ table{
     table-layout: fixed;
     width: 100%;
     height: 600px;
+}
+.unvisible{
+    display: none;
+}
+.question_panel{
+    height: var(--panel_size);
+    width: var(--panel_size);
+    position: absolute;
+    top: calc(50% - (var(--panel_size)/2));
+    left: calc(50% - (var(--panel_size)/2));
+    background-color: var(--main_color);
+    color: var(--sec_color);
+    border-radius: 6px;
+    border-color: var(--sec_color);
+    border-style: solid;
+    z-index: 3;
+}
+.question_title{
+    width: 100%;
+    text-align: center;
+    z-index: 3;
+}
+.close{
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    height: 20px;
+    width: 20px;
+    border-color: #1f1e1f;
+    border-style: solid;
+    text-align: center;
+    z-index: 3;
+}
+.question_img{
+    height: calc(var(--panel_size) - 100px);
+    width: calc(var(--panel_size) - 100px);
+    position: absolute;
+    left: 50px;
 }

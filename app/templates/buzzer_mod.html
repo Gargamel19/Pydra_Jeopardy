@@ -7,10 +7,36 @@
         <script src="{{ url_for('static', filename='scripts/buzzer.js') }}"></script>
     </head>
     <body onload="set_interval()">
+        <dic class="settings full_width">
+            <h2>Settings:</h2>
+            <input type="button" value="generate_feld" onclick="generate_feld()">
+            <h2>Player:</h2>
+            <div class="player_points_giver">
+                {% for player in players %}
+                <div class="points_player points_player_{{player['name']}}">
+                    <h3 class="text_player_name">{{player['name']}}</h3>
+                    <div class="punkte_player_holder">
+                        <input class="points_adder_button" type="button" value="-500" onclick="give_player_points('{{player['id']}}', -500)">
+                        <input class="points_adder_button" type="button" value="-400" onclick="give_player_points('{{player['id']}}', -400)">
+                        <input class="points_adder_button" type="button" value="-300" onclick="give_player_points('{{player['id']}}', -300)">
+                        <input class="points_adder_button" type="button" value="-200" onclick="give_player_points('{{player['id']}}', -200)">
+                        <input class="points_adder_button" type="button" value="-100" onclick="give_player_points('{{player['id']}}', -100)">
+                        <input class="points_adder_button" type="button" value="+100" onclick="give_player_points('{{player['id']}}', 100)">
+                        <input class="points_adder_button" type="button" value="+200" onclick="give_player_points('{{player['id']}}', 200)">
+                        <input class="points_adder_button" type="button" value="+300" onclick="give_player_points('{{player['id']}}', 300)">
+                        <input class="points_adder_button" type="button" value="+400" onclick="give_player_points('{{player['id']}}', 400)">
+                        <input class="points_adder_button" type="button" value="+500" onclick="give_player_points('{{player['id']}}', 500)">
+                    </div>
+                    
+                </div>
+            {% endfor %}
+            </div>
+            
+        </dic>
         <div class="button_space">
             <h2>Buzzer</h2>
             <div class="button">
-                <input class="reset_button" type="button" value="Reset" onclick="reset_button()">
+                <input class="reset_button" type="button" value="Reset" onclick="reset_buzz_button()">
             </div>
             {% if buzzer_active %}
             active: <input type="checkbox" name="buzzer_active" id="buzzer_active" onchange="change_buzzer_active()" checked>
@@ -26,6 +52,17 @@
                 </div>
                 {% endfor %}
             </div>
+        </div>
+        <div class="text_space">
+            <h2>Texts:</h2>
+            <div class="button">
+                <input class="reset_texts_button" type="button" value="Reset" onclick="reset_texts_button()">
+            </div>
+            {% if text_active %}
+                active: <input type="checkbox" name="text_active" id="text_active" onchange="change_text_active()" checked>
+            {% else %}
+                active: <input type="checkbox" name="text_active" id="text_active" onchange="change_text_active()">
+            {% endif %}
         </div>
     </body>
 </html>

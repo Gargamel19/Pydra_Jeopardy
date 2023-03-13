@@ -33,6 +33,24 @@ def buzz():
         print("added:", player["name"])
     return "ok"
 
+@app.route('/set_user_message', methods=["PUT"])
+def set_user_message():
+    user_id = request.args.get('user_id')
+    message = request.args.get('message')
+    player = get_player_from_id(user_id)
+    if vars.text_free:
+        player["text"] = message
+    return "ok"
+
+@app.route('/add_points', methods=["PUT"])
+def add_points():
+    user_id = request.args.get('user_id')
+    points = request.args.get('points')
+    player = get_player_from_id(user_id)
+    if vars.text_free:
+        player["punkte"] = player["punkte"] + int(points)
+    return "ok"
+
 
 @app.route('/buzzer/<user_id>')
 def button_by_user(user_id):
@@ -41,7 +59,7 @@ def button_by_user(user_id):
         return render_template("buzzer.html", player=player, buzzered=vars.Buzzered)
     else:
         if user_id == vars.Moderator["id"]:
-            return render_template("buzzer_mod.html", player=vars.Moderator, buzzered=vars.Buzzered, buzzer_active=vars.button_free)
+            return render_template("buzzer_mod.html", players=vars.Spieler, player=vars.Moderator, buzzered=vars.Buzzered, buzzer_active=vars.button_free, text_active=vars.text_show)
         return "error", 404
     
 @app.route('/buzz/reset', methods=["PUT"])
@@ -58,7 +76,45 @@ def deactivate_buzzer():
 def activate_buzzer():
     vars.button_free = True
     return "ok"
+
+@app.route('/texts/deactivate', methods=["PUT"])
+def deactivate_texts():
+    vars.text_show = False
+    return "ok"
+
+@app.route('/texts/activate', methods=["PUT"])
+def activate_texts():
+    vars.text_show = True
+    return "ok"
+
+@app.route('/texts/reset', methods=["PUT"])
+def reset_texts():
+    for player in vars.Spieler:
+        player["text"] = ""
+    vars.text_show = True
+    return "ok"
     
 @app.route('/buzzes')
 def get_buzzes():
     return jsonify(vars.Buzzered)
+
+
+@app.route('/player')
+def get_texts():
+    return jsonify(vars.Spieler)
+
+@app.route('/if_text_show')
+def get_text_show():
+    return jsonify(vars.text_show)
+
+@app.route('/visited', methods=["PUT"])
+def visited():
+    x = int(request.args.get('x'))
+    y = int(request.args.get('y'))
+    vars.feld[x][y] = 1
+    return "ok"
+
+
+@app.route('/feld')
+def get_feld():
+    return jsonify(vars.feld)

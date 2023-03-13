@@ -5,74 +5,86 @@
         <title>Flask app</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
         <script src="{{ url_for('static', filename='scripts/index.js') }}"></script>
+        <script src="{{ url_for('static', filename='scripts/countdown.js') }}"></script>
     </head>
     <body onload="set_interval()">
-        <h1>Hallo ich bin das template</h1>
-        
-        <input type="text" name="link_mod" id="" value="{{ moderator['video-link'] }}">
-        <dic class="settings full_width">
-            <h2>Settings:</h2>
-            <input type="button" value="generate_feld" onclick="generate_feld()">
-        </dic>
-
-        
         <div class="content">
-            <div class="moderatorcam">
-                <div class="mod_cam_container">
-                    <div class="dummy"></div>
-                    <embed class="mod_cam" src="{{ moderator['video-link'] }}">
-                    <a class="bottom-right text-over-cam">{{ moderator['name'] }}</a>
+            <div class="upper_content">
+                <div class="moderatorcam">
+                    <div class="timer">
+                        <a id="countdown_minuten">{{ countdown_min }}</a>:<a id="countdown_sekunden">{{ countdown_sec }}</a><a style="display: none" id="countdown_msekunden">00</a>
+                    </div>
+                    <div class="mod_cam_container_contianer">
+                        <div class="mod_cam_container">
+                            <div class="dummy"></div>
+                            <embed class="mod_cam" src="{{ moderator['video-link'] }}">
+                            <a class="bottom-right text-over-cam">{{ moderator['name'] }}</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="jeopardy-board">
-                <table>
-                    <tr>
-                        {% for row in rows %}
-                            <td>
-                                <div class="rows_names">
-                                    {{row}}
+                <div class="jeopardy-board">
+                    <table>
+                        <tr>
+                            {% for row in rows %}
+                                <td>
+                                    <div class="rows_names">
+                                        {{row}}
+                                    </div>
+                                </td>
+                            {% endfor %}
+                        </tr>
+                    
+                        {% for x in range(feld|length) %}
+                        <tr>
+                            {% for y in range(feld[x]|length) %}
+                            <td id="td_{{x}}_{{y}}" onclick="set_visited({{x}}, {{y}})">
+                                <div class="question_panel unvisible" id="question_{{x}}_{{y}}">
+                                    <input type="button" class="close" value="x" onclick="close_question({{x}}, {{y}})">
+                                    <h3 class="question_title">{{rows[x]}} - {{columns[y]}}</h3>
+                                    <img src="{{ url_for('static', filename='imgs/questions/'+rows[x]+'_'+columns[y]|string+'.png') }}" alt="" class="question_img">
+                                </div>
+                                {% if feld[x][y] == 0 %}
+                                <div id="feld_item_{{x}}_{{y}}" class="feld_item">
+                                {% else %}
+                                <div id="feld_item_{{x}}_{{y}}" class="feld_item played">
+                                {% endif %}
+                                    <div class="content_number">
+                                        {{columns[x]}}
+                                    </div>
                                 </div>
                             </td>
+                            {% endfor %}
+                        </tr>
                         {% endfor %}
-                    </tr>
-                
-                    {% for x in range(feld|length) %}
-                    <tr>
-                        {% for y in range(feld[x]|length) %}
-                        <td>
-                            {% if feld[x][y] == 0 %}
-                            <div class="feld_item feld_item_{{x}}_{{y}}">
-                                <div class="content">
-                                    {{columns[x]}}
-                                </div>
-                            </div>
-                            {% endif %}
-                            {% if feld[x][y] == 1 %}
-                            <div class="feld_item played feld_item_{{x}}_{{y}}">
-                                <div class="content">
-                                    {{columns[x]}}
-                                </div>
-                            </div>
-                            {% endif %}
-                        </td>
-                        {% endfor %}
-                    </tr>
-                    {% endfor %}
-                </table>
-            </div>
-        </div>
-
-        <div class="teilnehmer_cams">
-            {% for player in players %}
-            <div class="playercam">
-                <div class="player_cam_container">
-                    <div class="dummy"></div>
-                    <embed class="player_cam {{ player['name'] }}" src="{{ player['video-link'] }}">
-                        <a class="bottom-right text-over-cam">{{ player['name'] }}</a>
-                        <a class="bottom-left text-over-cam">{{ player['punkte'] }}</a>
+                    </table>
                 </div>
             </div>
-            {% endfor %}
+            <div class="teilnehmer_cams">
+                {% for player in players %}
+                <div class="playercam">
+                    <div class="player_cam_container">
+                        <div class="dummy"></div>
+                        <embed class="player_cam {{ player['name'] }}" src="{{ player['video-link'] }}">
+                            <a class="bottom-right text-over-cam" id="player_name_{{player['name']}}">{{ player['name'] }}</a>
+                            <a class="bottom-left text-over-cam" id="player_points_{{player['name']}}">{{ player['punkte'] }}</a>
+                            {% if player['text'] != "" %}
+                                <a class="top-left text-over-cam player_text" id="player_text_{{player['name']}}">{{ player['text'] }}</a>
+                            {% else %}
+                                <a class="top-left text-over-cam player_text unvisible" id="player_text_{{player['name']}}">{{ player['text'] }}</a>
+                            {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+        </div>
+        <div>
+            <div style="width: 100%" class="input">
+                Countdown <input id="countdown_min" type="text" value="{{countdown_min}}" style="width:5em">
+                <input id="countdown_sec" type="text" value="{{countdown_sec}}" style="width:5em">
+                <button id="countdown_start_stop" class="unloaded" onclick="countdown_start_stop()">Start</button>
+                <button onclick="countdown.clear()">Reset</button>
+            </div>
         </div>
         
     </body>

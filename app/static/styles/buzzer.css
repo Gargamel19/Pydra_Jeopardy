@@ -1,7 +1,26 @@
+body{
+    background-color: #282A36;
+    color: azure;
+}
+input {
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    text-decoration: none;
+    margin: 1em 1em;
+    cursor: pointer;
+    border-style: solid;
+    border-color: #04AA6D;
+    border-radius: 4px;
+}
+input[type=text] {
+    background-color: white;
+    color: black;
+}
 .button_space{
     width: 100%;
-    border-style: solid;
-    border-color: blueviolet;
+    border-bottom-style: solid;
+    border-bottom-color: blueviolet;
     border-radius: 2px;
 }
 .buzzer{
@@ -24,4 +43,25 @@
 .buzzered_names{
     display: flex;
     flex-wrap: wrap;
+}
+.player_points_giver{
+    display: flex;
+}
+.points_player{
+    border-style: solid;
+    border-color: blueviolet;
+    border-radius: 2px;
+    margin: 2em;
+    padding: 2em;
+}
+.text_player_name{
+    width: 100%;
+    text-align: center;
+}
+.punkte_player_holder{
+    display: flex;
+    flex-wrap: wrap;
+}
+.points_adder_button{
+    width: 100%;
 }

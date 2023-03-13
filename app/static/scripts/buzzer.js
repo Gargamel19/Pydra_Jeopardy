@@ -2,6 +2,18 @@ function set_interval(){
     setInterval(refresh_buzzs, 500);
 }
 
+function generate_feld(){
+
+    // Simple PUT request with a JSON body using fetch
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: 'Fetch PUT Request Example' })
+    };
+    fetch('http://127.0.0.1:5000/generate_feld', requestOptions);
+
+}
+
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
@@ -44,9 +56,6 @@ function buzz(user_id){
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
     fetch('http://127.0.0.1:5000/buzz?user_id='+user_id, requestOptions);
-    button = document.getElementsByClassName("buzzer_button")[0]
-
-
 }
 
 function activate_buzzer(){
@@ -73,7 +82,31 @@ function deactivate_buzzer(){
 
 }
 
-function reset_button(){
+function activate_texts(){
+
+    // Simple PUT request with a JSON body using fetch
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: 'Fetch PUT Request Example' })
+    };
+    fetch('http://127.0.0.1:5000/texts/activate', requestOptions);
+
+}
+
+function deactivate_texts(){
+
+    // Simple PUT request with a JSON body using fetch
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: 'Fetch PUT Request Example' })
+    };
+    fetch('http://127.0.0.1:5000/texts/deactivate', requestOptions);
+
+}
+
+function reset_buzz_button(){
 
     // Simple PUT request with a JSON body using fetch
     const requestOptions = {
@@ -85,6 +118,18 @@ function reset_button(){
 
 }
 
+function reset_texts_button(){
+
+    // Simple PUT request with a JSON body using fetch
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: 'Fetch PUT Request Example' })
+    };
+    fetch('http://127.0.0.1:5000/texts/reset', requestOptions);
+
+}
+
 function change_buzzer_active(){
     buzzer_active = document.getElementById("buzzer_active")
     if(!buzzer_active.checked){
@@ -92,4 +137,40 @@ function change_buzzer_active(){
     }else{
         activate_buzzer()
     }
+}
+
+function change_text_active(){
+    text_active = document.getElementById("text_active")
+    if(!text_active.checked){
+        deactivate_texts()
+    }else{
+        activate_texts()
+    }
+}
+
+function send_message(user_id){
+    user_input_value = document.getElementById("user_input").value
+    send_message_to_be(user_id, user_input_value)
+}
+
+function send_message_to_be(user_id, message){
+
+    // Simple PUT request with a JSON body using fetch
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: 'Fetch PUT Request Example' })
+    };
+    fetch('http://127.0.0.1:5000/set_user_message?user_id='+user_id+'&message=' + message, requestOptions);
+}
+
+function give_player_points(user_id, points){
+
+    // Simple PUT request with a JSON body using fetch
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: 'Fetch PUT Request Example' })
+    };
+    fetch('http://127.0.0.1:5000/add_points?user_id='+user_id+'&points=' + points, requestOptions);
 }

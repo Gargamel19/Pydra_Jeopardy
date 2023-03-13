@@ -19,5 +19,11 @@
             </div>
             {% endfor %}
         </div>
+        <div class="userinput">
+            <div class="userinput_container">
+                Input: <input id="user_input" class="user_input">
+            </div>
+            <input type="button" value="Save" onclick="send_message('{{ player['id'] }}')">
+        </div>
     </body>
 </html>
