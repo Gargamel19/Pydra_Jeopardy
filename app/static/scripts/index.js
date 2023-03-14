@@ -34,7 +34,7 @@ function refresh_buzzs(){
     const requestOptions = {
         method: 'GET'
     };
-    buzzered = fetch('http://127.0.0.1:5000/buzzes', requestOptions)
+    buzzered = fetch('http://h2922469.stratoserver.net:43173/buzzes', requestOptions)
     .then((response) => response.json())
     .then((data) => make_divs_buzzed(data));
 
@@ -51,7 +51,7 @@ function refresh_texts(){
     const requestOptions = {
         method: 'GET'
     };
-    buzzered = fetch('http://127.0.0.1:5000/player', requestOptions)
+    buzzered = fetch('http://h2922469.stratoserver.net:43173/player', requestOptions)
     .then((response) => response.json())
     .then((data) => make_divs_player_stats_divs(data));
 }
@@ -75,7 +75,7 @@ function refresh_if_text_show(){
     const requestOptions = {
         method: 'GET'
     };
-    buzzered = fetch('http://127.0.0.1:5000/if_text_show', requestOptions)
+    buzzered = fetch('http://h2922469.stratoserver.net:43173/if_text_show', requestOptions)
     .then((response) => response.json())
     .then((data) => make_divs_player_stats_divs_if_text_show(data));
 }
@@ -85,7 +85,7 @@ function set_visited(x, y){
     const requestOptions = {
         method: 'PUT'
     };
-    buzzered = fetch('http://127.0.0.1:5000/visited?x='+x+'&y='+y, requestOptions)
+    buzzered = fetch('http://h2922469.stratoserver.net:43173/visited?x='+x+'&y='+y, requestOptions)
     question_x_y = document.getElementById("question_" + x + "_" + y)
     question_x_y.classList.remove("unvisible")
 }
@@ -115,7 +115,7 @@ function refresh_feld(){
     const requestOptions = {
         method: 'GET'
     };
-    buzzered = fetch('http://127.0.0.1:5000/feld', requestOptions)
+    buzzered = fetch('http://h2922469.stratoserver.net:43173/feld', requestOptions)
     .then((response) => response.json())
     .then((data) => make_feld(data));
 }

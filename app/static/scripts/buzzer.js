@@ -10,7 +10,7 @@ function generate_feld(){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
-    fetch('http://127.0.0.1:5000/generate_feld', requestOptions);
+    fetch('http://h2922469.stratoserver.net:43173/generate_feld', requestOptions);
 
 }
 
@@ -41,7 +41,7 @@ function refresh_buzzs(){
     const requestOptions = {
         method: 'GET'
     };
-    buzzered = fetch('http://127.0.0.1:5000/buzzes', requestOptions)
+    buzzered = fetch('http://h2922469.stratoserver.net:43173/buzzes', requestOptions)
     .then((response) => response.json())
     .then((data) => make_divs(data));
 
@@ -55,7 +55,7 @@ function buzz(user_id){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
-    fetch('http://127.0.0.1:5000/buzz?user_id='+user_id, requestOptions);
+    fetch('http://h2922469.stratoserver.net:43173/buzz?user_id='+user_id, requestOptions);
 }
 
 function activate_buzzer(){
@@ -66,7 +66,7 @@ function activate_buzzer(){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
-    fetch('http://127.0.0.1:5000/buzz/activate', requestOptions);
+    fetch('http://h2922469.stratoserver.net:43173/buzz/activate', requestOptions);
 
 }
 
@@ -78,7 +78,7 @@ function deactivate_buzzer(){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
-    fetch('http://127.0.0.1:5000/buzz/deactivate', requestOptions);
+    fetch('http://h2922469.stratoserver.net:43173/buzz/deactivate', requestOptions);
 
 }
 
@@ -90,7 +90,7 @@ function activate_texts(){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
-    fetch('http://127.0.0.1:5000/texts/activate', requestOptions);
+    fetch('http://h2922469.stratoserver.net:43173/texts/activate', requestOptions);
 
 }
 
@@ -102,7 +102,7 @@ function deactivate_texts(){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
-    fetch('http://127.0.0.1:5000/texts/deactivate', requestOptions);
+    fetch('http://h2922469.stratoserver.net:43173/texts/deactivate', requestOptions);
 
 }
 
@@ -114,7 +114,7 @@ function reset_buzz_button(){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
-    fetch('http://127.0.0.1:5000/buzz/reset', requestOptions);
+    fetch('http://h2922469.stratoserver.net:43173/buzz/reset', requestOptions);
 
 }
 
@@ -126,7 +126,7 @@ function reset_texts_button(){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
-    fetch('http://127.0.0.1:5000/texts/reset', requestOptions);
+    fetch('http://h2922469.stratoserver.net:43173/texts/reset', requestOptions);
 
 }
 
@@ -161,7 +161,7 @@ function send_message_to_be(user_id, message){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
-    fetch('http://127.0.0.1:5000/set_user_message?user_id='+user_id+'&message=' + message, requestOptions);
+    fetch('http://h2922469.stratoserver.net:43173/set_user_message?user_id='+user_id+'&message=' + message, requestOptions);
 }
 
 function give_player_points(user_id, points){
@@ -172,5 +172,5 @@ function give_player_points(user_id, points){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
-    fetch('http://127.0.0.1:5000/add_points?user_id='+user_id+'&points=' + points, requestOptions);
+    fetch('http://h2922469.stratoserver.net:43173/add_points?user_id='+user_id+'&points=' + points, requestOptions);
 }
