@@ -17,7 +17,7 @@
                     <div class="mod_cam_container_contianer">
                         <div class="mod_cam_container">
                             <div class="dummy"></div>
-                            <iframe class="mod_cam" src="{{ moderator['video-link'] }}" id="mod_cam"></iframe>
+                            <iframe class="mod_cam" allow="autoplay;camera;microphone" src="{{ moderator['video-link']+'&cleanoutput&transparent'}}" id="mod_cam"></iframe>
                             <a class="bottom-right text-over-cam">{{ moderator['name'] }}</a>
                         </div>
                     </div>
