@@ -174,3 +174,29 @@ function give_player_points(user_id, points){
     };
     fetch('http://h2922469.stratoserver.net:43173/add_points?user_id='+user_id+'&points=' + points, requestOptions);
 }
+
+function save_cam_link(user_name, user_id){
+
+    cam_link_input = document.getElementById("camlink_" + user_name).value
+
+    // Simple PUT request with a JSON body using fetch
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: 'Fetch PUT Request Example' })
+    };
+    fetch('http://h2922469.stratoserver.net:43173/save_cam_link?user_id='+user_id+'&cam_link=' + cam_link_input, requestOptions);
+}
+
+function save_cam_link_moderator(){
+
+    cam_link_input = document.getElementById("camlink_mod").value
+
+    // Simple PUT request with a JSON body using fetch
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: 'Fetch PUT Request Example' })
+    };
+    fetch('http://h2922469.stratoserver.net:43173/save_cam_link_mod?cam_link=' + cam_link_input, requestOptions);
+}
