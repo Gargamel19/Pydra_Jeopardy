@@ -81,19 +81,19 @@ function refresh_if_text_show(){
 }
 
 function set_visited(x, y){
+    console.log("set_visited "+ x + " , " + y);
     const requestOptions = {
         method: 'PUT'
     };
     buzzered = fetch('http://127.0.0.1:5000/visited?x='+x+'&y='+y, requestOptions)
     question_x_y = document.getElementById("question_" + x + "_" + y)
     question_x_y.classList.remove("unvisible")
-    td_x_y = document.getElementById("td_" + x + "_" + y)
-    td_x_y.setAttribute('onclick','close('+x+', '+y+')');
 }
 
 function close_question(x, y){
     console.log("close "+ x + " , " + y);
     question_x_y = document.getElementById("question_" + x + "_" + y)
+    console.log(question_x_y);
     question_x_y.classList.add("unvisible")
 }
 

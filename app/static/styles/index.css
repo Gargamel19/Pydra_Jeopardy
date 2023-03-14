@@ -1,5 +1,5 @@
 :root {
-    --panel_size: 500px;
+    --panel_size: 700px;
     --main_color: #ffa8c1;
     --sec_color: #301f23;
     
@@ -45,10 +45,13 @@ body {
 }
 .timer{
     font-size: 3em;
+    position: relative;
+    top: 305px;
 }
 .mod_cam_container_contianer{
     display: flex;
     position: relative;
+    top: 311px;
 }
 .jeopardy-board{
     display: block;
@@ -172,12 +175,13 @@ table{
 .unvisible{
     display: none;
 }
+
 .question_panel{
     height: var(--panel_size);
     width: var(--panel_size);
     position: absolute;
-    top: calc(50% - (var(--panel_size)/2));
-    left: calc(50% - (var(--panel_size)/2));
+    top: 17px;
+    left: 880px;
     background-color: var(--main_color);
     color: var(--sec_color);
     border-radius: 6px;

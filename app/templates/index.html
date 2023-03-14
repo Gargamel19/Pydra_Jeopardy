@@ -37,16 +37,16 @@
                         {% for x in range(feld|length) %}
                         <tr>
                             {% for y in range(feld[x]|length) %}
-                            <td id="td_{{x}}_{{y}}" onclick="set_visited({{x}}, {{y}})">
+                            <td id="td_{{x}}_{{y}}">
                                 <div class="question_panel unvisible" id="question_{{x}}_{{y}}">
                                     <input type="button" class="close" value="x" onclick="close_question({{x}}, {{y}})">
-                                    <h3 class="question_title">{{rows[x]}} - {{columns[y]}}</h3>
-                                    <img src="{{ url_for('static', filename='imgs/questions/'+rows[x]+'_'+columns[y]|string+'.png') }}" alt="" class="question_img">
+                                    <h3 class="question_title">{{rows[y]}} - {{columns[x]}}</h3>
+                                    <img src="{{ url_for('static', filename='imgs/questions/'+rows[y]+'_'+columns[x]|string+'.png') }}" alt="" class="question_img">
                                 </div>
                                 {% if feld[x][y] == 0 %}
-                                <div id="feld_item_{{x}}_{{y}}" class="feld_item">
+                                <div id="feld_item_{{x}}_{{y}}" class="feld_item" onclick="set_visited({{x}}, {{y}})">
                                 {% else %}
-                                <div id="feld_item_{{x}}_{{y}}" class="feld_item played">
+                                <div id="feld_item_{{x}}_{{y}}" class="feld_item played" onclick="set_visited({{x}}, {{y}})">
                                 {% endif %}
                                     <div class="content_number">
                                         {{columns[x]}}
