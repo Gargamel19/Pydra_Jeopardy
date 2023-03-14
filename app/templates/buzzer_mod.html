@@ -10,6 +10,8 @@
         <dic class="settings full_width">
             <h2>Settings:</h2>
             <input type="button" value="generate_feld" onclick="generate_feld()">
+            <input type="text" class="camlink" id="camlink_mod" value="{{player['video-link']}}">
+            <input type="button" class="save_cam_link" value="save" onclick="save_cam_link_moderator()">
             <h2>Player:</h2>
             <div class="player_points_giver">
                 {% for player in players %}
@@ -27,6 +29,8 @@
                         <input class="points_adder_button" type="button" value="+400" onclick="give_player_points('{{player['id']}}', 400)">
                         <input class="points_adder_button" type="button" value="+500" onclick="give_player_points('{{player['id']}}', 500)">
                     </div>
+                    <input type="text" class="camlink" id="camlink_{{player['name']}}" value="{{player['video-link']}}">
+                    <input type="button" class="save_cam_link" value="save" onclick="save_cam_link('{{player['name']}}', '{{player['id']}}')">
                     
                 </div>
             {% endfor %}

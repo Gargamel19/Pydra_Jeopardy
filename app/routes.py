@@ -51,6 +51,22 @@ def add_points():
         player["punkte"] = player["punkte"] + int(points)
     return "ok"
 
+@app.route('/save_cam_link', methods=["PUT"])
+def save_cam_link():
+    user_id = request.args.get('user_id')
+    cam_link = request.args.get('cam_link')
+    player = get_player_from_id(user_id)
+    if vars.text_free:
+        player["video-link"] = cam_link
+    return "ok"
+
+@app.route('/save_cam_link_mod', methods=["PUT"])
+def save_cam_link_mod():
+    cam_link = request.args.get('cam_link')
+    if vars.text_free:
+        vars.Moderator["video-link"] = cam_link
+    return "ok"
+
 
 @app.route('/buzzer/<user_id>')
 def button_by_user(user_id):
@@ -102,6 +118,10 @@ def get_buzzes():
 @app.route('/player')
 def get_texts():
     return jsonify(vars.Spieler)
+
+@app.route('/moderator')
+def get_moderator():
+    return jsonify(vars.Moderator)
 
 @app.route('/if_text_show')
 def get_text_show():

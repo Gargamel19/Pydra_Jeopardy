@@ -17,7 +17,7 @@
                     <div class="mod_cam_container_contianer">
                         <div class="mod_cam_container">
                             <div class="dummy"></div>
-                            <embed class="mod_cam" src="{{ moderator['video-link'] }}">
+                            <embed class="mod_cam" src="{{ moderator['video-link'] }}" id="mod_cam">
                             <a class="bottom-right text-over-cam">{{ moderator['name'] }}</a>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                 <div class="playercam">
                     <div class="player_cam_container">
                         <div class="dummy"></div>
-                        <embed class="player_cam {{ player['name'] }}" src="{{ player['video-link'] }}">
+                        <embed class="player_cam {{ player['name'] }}" src="{{ player['video-link'] }}" id="player_cam_{{ player['name'] }}">
                             <a class="bottom-right text-over-cam" id="player_name_{{player['name']}}">{{ player['name'] }}</a>
                             <a class="bottom-left text-over-cam" id="player_points_{{player['name']}}">{{ player['punkte'] }}</a>
                             {% if player['text'] != "" %}
@@ -86,6 +86,7 @@
                 <button onclick="countdown.clear()">Reset</button>
             </div>
         </div>
+        <input type="button" value="refresh_cams" onclick="refresh_player_cams()">
         
     </body>
 </html>

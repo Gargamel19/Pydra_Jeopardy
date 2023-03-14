@@ -119,3 +119,34 @@ function refresh_feld(){
     .then((response) => response.json())
     .then((data) => make_feld(data));
 }
+
+function refresh_cams(players){
+    for (let x = 0; x < players.length; x++) {
+        const element = players[x];
+        document.getElementById("player_cam_" + element["name"]).src = element["video-link"]
+    }
+}
+
+function refresh_mod_cam(moderator){
+    document.getElementById("mod_cam").src = moderator["video-link"]
+}
+
+
+function refresh_player_cams(){
+    const requestOptions = {
+        method: 'GET'
+    };
+    buzzered = fetch('http://h2922469.stratoserver.net:43173/player', requestOptions)
+    .then((response) => response.json())
+    .then((data) => (refresh_cams(data)));
+    refresh_moderators_cams();
+}
+
+function refresh_moderators_cams(){
+    const requestOptions = {
+        method: 'GET'
+    };
+    buzzered = fetch('http://h2922469.stratoserver.net:43173/moderator', requestOptions)
+    .then((response) => response.json())
+    .then((data) => (refresh_mod_cam(data)));
+}
