@@ -1,5 +1,6 @@
 function set_interval(){
     setInterval(refresh_buzzs, 500);
+    setInterval(refresh_texts_mod, 500);
 }
 
 function generate_feld(){
@@ -199,4 +200,22 @@ function save_cam_link_moderator(){
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
     fetch('http://h2922469.stratoserver.net:43173/save_cam_link_mod?cam_link=' + cam_link_input, requestOptions);
+}
+
+function make_divs_texts_mod(players){
+    for (const x in players) {
+        const element = players[x]
+        dokument.getElementById("player_text_div_" + element["name"]).innerHTML = element["text"]
+    }
+}
+
+function refresh_texts_mod(){
+    const requestOptions = {
+        method: 'GET'
+    };
+    buzzered = fetch('http://h2922469.stratoserver.net:43173/player', requestOptions)
+    .then((response) => response.json())
+    .then((data) => make_divs_texts_mod(data));
+
+
 }
