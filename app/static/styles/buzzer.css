@@ -65,3 +65,12 @@ input[type=text] {
 .points_adder_button{
     width: 100%;
 }
+.text_player{
+    width: 100%;
+    text-align: center;
+}
+.texts_player{
+    border-color: #04AA6D;
+    border-style: solid;
+    border-radius: 3px;
+}
