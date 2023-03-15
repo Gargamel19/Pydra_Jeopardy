@@ -70,7 +70,7 @@
             {% for player in players %}
                 <div class="texts_player texts_player_{{player['name']}}">
                     <h3 class="text_player_name">{{player['name']}}</h3>
-                    <div class="text_player player_text_div_{{player['name']}}">{{player['text']}}</div>
+                    <div class="text_player" id="player_text_div_{{player['name']}}">{{player['text']}}</div>
                 </div>
             {% endfor %}
         </div>
