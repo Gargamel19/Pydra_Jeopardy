@@ -134,7 +134,7 @@ function get_open_panel(){
     const requestOptions = {
         method: 'GET'
     };
-    buzzered = fetch('http://h2922469.stratoserver.net:43173/open_panel', requestOptions)
+    buzzered = fetch('http://h2922469.stratoserver.net:43173/get_open_panel', requestOptions)
     .then((response) => response.json())
     .then((data) => open_panel_make_div(data));
 }

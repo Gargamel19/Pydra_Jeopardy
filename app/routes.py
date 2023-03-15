@@ -156,6 +156,6 @@ def close_panel():
 def get_feld():
     return jsonify(vars.feld)
 
-@app.route('/open_panel')
-def open_panel():
+@app.route('/get_open_panel')
+def get_open_panel():
     return jsonify(vars.open_panel)
