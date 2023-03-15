@@ -81,19 +81,12 @@ function refresh_if_text_show(){
     .then((data) => make_divs_player_stats_divs_if_text_show(data));
 }
 
-function set_visited(x, y){
+function toggle_visibility(x, y){
     console.log("set_visited "+ x + " , " + y);
     const requestOptions = {
         method: 'PUT'
     };
     buzzered = fetch('http://h2922469.stratoserver.net:43173/visited?x='+x+'&y='+y, requestOptions)
-}
-
-function close_question(x, y){
-    console.log("close "+ x + " , " + y);
-    question_x_y = document.getElementById("question_" + x + "_" + y)
-    console.log(question_x_y);
-    question_x_y.classList.add("unvisible")
 }
 
 function open_panel_make_div(data){
