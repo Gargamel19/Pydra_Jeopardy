@@ -145,5 +145,5 @@ def get_feld():
     return jsonify(vars.feld)
 
 @app.route('/open_panel')
-def get_feld():
+def open_panel():
     return jsonify(vars.open_panel)
