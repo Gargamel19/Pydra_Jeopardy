@@ -205,7 +205,7 @@ function save_cam_link_moderator(){
 function make_divs_texts_mod(players){
     for (const x in players) {
         const element = players[x]
-        dokument.getElementById("player_text_div_" + element["name"]).innerHTML = element["text"]
+        document.getElementById("player_text_div_" + element["name"]).innerHTML = element["text"]
     }
 }
 
