@@ -178,10 +178,10 @@ table{
 
 .question_panel{
     height: var(--panel_size);
-    width: calc(var(--panel_size)*2);
+    width: calc(var(--panel_size)*1.8);
     position: absolute;
     top: 17px;
-    left: 500px;
+    left: 510px;
     background-color: var(--main_color);
     color: var(--sec_color);
     border-radius: 6px;
