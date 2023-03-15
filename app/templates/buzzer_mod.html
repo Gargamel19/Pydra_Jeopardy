@@ -16,7 +16,7 @@
             <div class="player_points_giver">
                 {% for player in players %}
                 <div class="points_player points_player_{{player['name']}}">
-                    <h3 class="text_player_name"><a href="{{ url_for('button_by_user', player['id']) }}" target="_blank">{{player['name']}}</a></h3>
+                    <h3 class="text_player_name"><a href="{{ url_for('button_by_user', user_id=player['id']) }}" target="_blank">{{player['name']}}</a></h3>
                     <div class="punkte_player_holder">
                         <input class="points_adder_button" type="button" value="-500" onclick="give_player_points('{{player['id']}}', -500)">
                         <input class="points_adder_button" type="button" value="-400" onclick="give_player_points('{{player['id']}}', -400)">
