@@ -181,7 +181,7 @@ table{
     width: calc(var(--panel_size)*1.8);
     position: absolute;
     top: 17px;
-    left: 510px;
+    left: 550px;
     background-color: var(--main_color);
     color: var(--sec_color);
     border-radius: 6px;
