@@ -207,7 +207,7 @@ table{
 }
 .question_img{
     height: calc(var(--panel_size) - 100px);
-    width: calc(var(--panel_size) / 2);
+    width: calc(var(--panel_size) - 100px);
     position: absolute;
-    left: 50px;
+    left: calc(var(--panel_size) / 2);
 }
