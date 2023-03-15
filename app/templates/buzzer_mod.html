@@ -67,6 +67,12 @@
             {% else %}
                 active: <input type="checkbox" name="text_active" id="text_active" onchange="change_text_active()">
             {% endif %}
+            {% for player in players %}
+                <div class="texts_player texts_player_{{player['name']}}">
+                    <h3 class="text_player_name">{{player['name']}}</h3>
+                    <div class="player_text_div_{{player['name']}}">{{player['text']}}</div>
+                </div>
+            {% endfor %}
         </div>
     </body>
 </html>
