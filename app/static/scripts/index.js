@@ -87,7 +87,6 @@ function open_this_panel(x, y){
 
 }
 function close_this_panel(x, y){
-    toggle_visibility(x, y)
     close_panel(x, y)
 
 }
