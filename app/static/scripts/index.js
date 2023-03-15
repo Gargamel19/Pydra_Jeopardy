@@ -97,13 +97,23 @@ function close_question(x, y){
 }
 
 function open_panel_make_div(data){
-
-    question_x_y = document.getElementById("question_" + data[0] + "_" + data[1])
-    if(question_x_y.classList.contains("unvisible")){
-        question_x_y.classList.remove("unvisible")
-    }else{
-        question_x_y.classList.add("unvisible")
+    elements = document.getElementsByClassName(question_panel)
+    for (let i = 0; i < elements.length; i++) {
+        element = elements[i]
+        if(!element.classList.contains("unvisible")){
+            if(element.id === "question_" + data[0] + "_" + data[1]){
+                question_x_y.classList.remove("unvisible")
+            }else{
+                element.classList.add("unvisible")
+            }
+        }
+        if(element.id === "question_" + data[0] + "_" + data[1]){
+            question_x_y.classList.remove("unvisible")
+        }
     }
+    question_x_y = document.getElementById("question_" + data[0] + "_" + data[1])
+    question_x_y.classList.remove("unvisible")
+    
 }
 
 function get_open_panel(){
