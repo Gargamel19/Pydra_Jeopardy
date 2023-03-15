@@ -138,14 +138,14 @@ def visited():
     return "ok"
 
 @app.route('/open_panel', methods=["PUT"])
-def open():
+def open_panel():
     x = int(request.args.get('x'))
     y = int(request.args.get('y'))
     vars.open_panel = [x, y]
     return "ok"
 
 @app.route('/close_panel', methods=["PUT"])
-def open():
+def close_panel():
     x = int(request.args.get('x'))
     y = int(request.args.get('y'))
     vars.open_panel = []
