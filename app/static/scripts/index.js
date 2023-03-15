@@ -107,7 +107,7 @@ function open_panel_make_div(data){
             }
         }
         if(element.id === "question_" + data[0] + "_" + data[1]){
-            question_x_y.classList.remove("unvisible")
+            element.classList.remove("unvisible")
         }
     }
     
