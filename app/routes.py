@@ -133,10 +133,22 @@ def visited():
     y = int(request.args.get('y'))
     if vars.feld[x][y] == 1:
         vars.feld[x][y] = 0
-        vars.open_panel = []
     else:
         vars.feld[x][y] = 1
-        vars.open_panel = [x, y]
+    return "ok"
+
+@app.route('/open_panel', methods=["PUT"])
+def open():
+    x = int(request.args.get('x'))
+    y = int(request.args.get('y'))
+    vars.open_panel = [x, y]
+    return "ok"
+
+@app.route('/close_panel', methods=["PUT"])
+def open():
+    x = int(request.args.get('x'))
+    y = int(request.args.get('y'))
+    vars.open_panel = []
     return "ok"
 
 

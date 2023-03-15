@@ -81,12 +81,36 @@ function refresh_if_text_show(){
     .then((data) => make_divs_player_stats_divs_if_text_show(data));
 }
 
+function open(x, y){
+    toggle_visibility(x, y)
+    open_panel(x, y)
+
+}
+function close(x, y){
+    toggle_visibility(x, y)
+    close_panel(x, y)
+
+}
+
 function toggle_visibility(x, y){
-    console.log("set_visited "+ x + " , " + y);
     const requestOptions = {
         method: 'PUT'
     };
     buzzered = fetch('http://h2922469.stratoserver.net:43173/visited?x='+x+'&y='+y, requestOptions)
+}
+
+function close_panel(x, y){
+    const requestOptions = {
+        method: 'PUT'
+    };
+    buzzered = fetch('http://h2922469.stratoserver.net:43173/close_panel?x='+x+'&y='+y, requestOptions)
+}
+
+function open_panel(x, y){
+    const requestOptions = {
+        method: 'PUT'
+    };
+    buzzered = fetch('http://h2922469.stratoserver.net:43173/open_panel?x='+x+'&y='+y, requestOptions)
 }
 
 function open_panel_make_div(data){
