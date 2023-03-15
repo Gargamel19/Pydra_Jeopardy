@@ -2,7 +2,8 @@ function set_interval(){
     setInterval(refresh_buzzs, 500);
     setInterval(refresh_texts, 500);
     setInterval(refresh_if_text_show, 500);
-    setInterval(refresh_feld, 500)
+    setInterval(refresh_feld, 500);
+    setInterval(get_open_panel, 500);
 }
 
 function make_divs_buzzed(data){
