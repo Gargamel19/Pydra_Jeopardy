@@ -133,11 +133,17 @@ def visited():
     y = int(request.args.get('y'))
     if vars.feld[x][y] == 1:
         vars.feld[x][y] = 0
+        vars.open_panel = []
     else:
         vars.feld[x][y] = 1
+        vars.open_panel = [x, y]
     return "ok"
 
 
 @app.route('/feld')
 def get_feld():
     return jsonify(vars.feld)
+
+@app.route('/open_panel')
+def get_feld():
+    return jsonify(vars.open_panel)

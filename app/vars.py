@@ -40,3 +40,4 @@ Buzzered=[]
 button_free=True
 text_free=True
 text_show=True
+open_panel=[]

@@ -86,12 +86,6 @@ function set_visited(x, y){
         method: 'PUT'
     };
     buzzered = fetch('http://h2922469.stratoserver.net:43173/visited?x='+x+'&y='+y, requestOptions)
-    question_x_y = document.getElementById("question_" + x + "_" + y)
-    if(question_x_y.classList.contains("unvisible")){
-        question_x_y.classList.remove("unvisible")
-    }else{
-        question_x_y.classList.add("unvisible")
-    }
 }
 
 function close_question(x, y){
@@ -101,6 +95,24 @@ function close_question(x, y){
     question_x_y.classList.add("unvisible")
 }
 
+function open_panel_make_div(data){
+
+    question_x_y = document.getElementById("question_" + data[0] + "_" + data[1])
+    if(question_x_y.classList.contains("unvisible")){
+        question_x_y.classList.remove("unvisible")
+    }else{
+        question_x_y.classList.add("unvisible")
+    }
+}
+
+function get_open_panel(){
+    const requestOptions = {
+        method: 'GET'
+    };
+    buzzered = fetch('http://h2922469.stratoserver.net:43173/open_panel', requestOptions)
+    .then((response) => response.json())
+    .then((data) => open_panel_make_div(data));
+}
 
 function make_feld(data){
     for (let x = 0; x < data.length; x++) {
