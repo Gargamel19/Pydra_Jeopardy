@@ -131,7 +131,10 @@ def get_text_show():
 def visited():
     x = int(request.args.get('x'))
     y = int(request.args.get('y'))
-    vars.feld[x][y] = 1
+    if vars.feld[x][y] == 1:
+        vars.feld[x][y] = 0
+    else:
+        vars.feld[x][y] = 1
     return "ok"
 
 

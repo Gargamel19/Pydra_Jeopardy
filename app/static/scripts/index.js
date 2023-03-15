@@ -87,7 +87,11 @@ function set_visited(x, y){
     };
     buzzered = fetch('http://h2922469.stratoserver.net:43173/visited?x='+x+'&y='+y, requestOptions)
     question_x_y = document.getElementById("question_" + x + "_" + y)
-    question_x_y.classList.remove("unvisible")
+    if(question_x_y.classList.contains("unvisible")){
+        question_x_y.classList.remove("unvisible")
+    }else{
+        question_x_y.classList.add("unvisible")
+    }
 }
 
 function close_question(x, y){
