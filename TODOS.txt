@@ -2,4 +2,4 @@ texte von spielern in modereatoren übersicht                                CHE
 Links von spielert öffnene wenn auf name in moderatoren übersicht           CHECK
 alle instanzen öfnnen das fragen-panel                                      
 alle instanzen zeigen aktuellen Timer das fragen-panel                      
-nochmal auf fragen-karte drücken wieder umdrehen                            
+nochmal auf fragen-karte drücken wieder umdrehen                            CHECK

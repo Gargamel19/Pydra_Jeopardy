@@ -178,7 +178,7 @@ table{
 
 .question_panel{
     height: var(--panel_size);
-    width: var(--panel_size);
+    width: calc(var(--panel_size)*2);
     position: absolute;
     top: 17px;
     left: 880px;
