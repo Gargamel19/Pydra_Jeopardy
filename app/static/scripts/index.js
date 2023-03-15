@@ -97,7 +97,7 @@ function close_question(x, y){
 }
 
 function open_panel_make_div(data){
-    elements = document.getElementsByClassName(question_panel)
+    elements = document.getElementsByClassName("question_panel")
     for (let i = 0; i < elements.length; i++) {
         element = elements[i]
         if(!element.classList.contains("unvisible")){
