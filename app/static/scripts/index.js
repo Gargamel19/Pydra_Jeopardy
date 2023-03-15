@@ -81,12 +81,12 @@ function refresh_if_text_show(){
     .then((data) => make_divs_player_stats_divs_if_text_show(data));
 }
 
-function open(x, y){
+function open_this_panel(x, y){
     toggle_visibility(x, y)
     open_panel(x, y)
 
 }
-function close(x, y){
+function close_this_panel(x, y){
     toggle_visibility(x, y)
     close_panel(x, y)
 
