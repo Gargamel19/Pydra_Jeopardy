@@ -181,7 +181,7 @@ table{
     width: calc(var(--panel_size)*2);
     position: absolute;
     top: 17px;
-    left: 480px;
+    left: 500px;
     background-color: var(--main_color);
     color: var(--sec_color);
     border-radius: 6px;
@@ -207,7 +207,7 @@ table{
 }
 .question_img{
     height: calc(var(--panel_size) - 100px);
-    width: calc(var(--panel_size) - 100px);
+    width: calc(var(--panel_size) / 2);
     position: absolute;
     left: 50px;
 }
