@@ -7,28 +7,28 @@ Moderator={
 }
 Spieler=[
     {
-        "name": "FettarmQP",
+        "name": "Robertyaa",
         "video-link": "https://vdo.ninja/?view=G3wApLj",
         "punkte": 0,
         "text": "",
         "id": "slhjdfg"
     },
     {
-        "name": "DiesoX",
+        "name": "FettarmQP",
         "video-link": "https://vdo.ninja/?view=G3wApLj",
         "punkte": 0,
         "text": "",
         "id": "iuawekhjd"
     },
     {
-        "name": "Robertyaa",
+        "name": "SonnengottRa",
         "video-link": "https://vdo.ninja/?view=G3wApLj",
         "punkte": 0,
         "text": "Hallo",
         "id": "kujfhw"
     },
     {
-        "name": "paff_morris",
+        "name": "KugelBuch",
         "video-link": "https://vdo.ninja/?view=G3wApLj",
         "punkte": 0,
         "text": "",
