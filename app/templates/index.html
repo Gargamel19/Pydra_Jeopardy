@@ -17,7 +17,7 @@
                     <div class="mod_cam_container_contianer">
                         <div class="mod_cam_container">
                             <div class="dummy"></div>
-                            
+                            <iframe class="mod_cam" allow="autoplay;camera;microphone" frameborder="0" src="" allow="autoplay" id="mod_cam"></iframe>
                             <a class="bottom-right text-over-cam">{{ moderator['name'] }}</a>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                 <div class="playercam">
                     <div class="player_cam_container">
                         <div class="dummy"></div>
-                        
+                        <embed class="player_cam {{ player['name'] }}" src="" id="player_cam_{{ player['name'] }}">
                             <a class="bottom-right text-over-cam" id="player_name_{{player['name']}}">{{ player['name'] }}</a>
                             <a class="bottom-left text-over-cam" id="player_points_{{player['name']}}">{{ player['punkte'] }}</a>
                             {% if player['text'] != "" %}
