@@ -1,5 +1,5 @@
 :root {
-    --panel_size: 700px;
+    --panel_size: 550px;
     --main_color: #ffa8c1;
     --sec_color: #301f23;
     
@@ -177,11 +177,11 @@ table{
 }
 
 .question_panel{
-    height: var(--panel_size);
-    width: calc(var(--panel_size)*1.8);
+    height: 551px;
+    width: 1331px;
     position: absolute;
-    top: 17px;
-    left: 600px;
+    top: 39px;
+    left: 560px;
     background-color: var(--main_color);
     color: var(--sec_color);
     border-radius: 6px;
@@ -209,5 +209,5 @@ table{
     height: calc(var(--panel_size) - 100px);
     width: calc(var(--panel_size) - 100px);
     position: absolute;
-    left: calc(var(--panel_size) / 2);
+    left: 440px;
 }

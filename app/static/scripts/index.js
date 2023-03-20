@@ -1,3 +1,6 @@
+url = "http://localhost:43173"
+//url = "http://h2922469.stratoserver.net:43173"
+
 function set_interval(){
     setInterval(refresh_buzzs, 500);
     setInterval(refresh_texts, 500);
@@ -35,7 +38,7 @@ function refresh_buzzs(){
     const requestOptions = {
         method: 'GET'
     };
-    buzzered = fetch('http://h2922469.stratoserver.net:43173/buzzes', requestOptions)
+    buzzered = fetch(url+'/buzzes', requestOptions)
     .then((response) => response.json())
     .then((data) => make_divs_buzzed(data));
 
@@ -52,7 +55,7 @@ function refresh_texts(){
     const requestOptions = {
         method: 'GET'
     };
-    buzzered = fetch('http://h2922469.stratoserver.net:43173/player', requestOptions)
+    buzzered = fetch(url+'/player', requestOptions)
     .then((response) => response.json())
     .then((data) => make_divs_player_stats_divs(data));
 }
@@ -76,7 +79,7 @@ function refresh_if_text_show(){
     const requestOptions = {
         method: 'GET'
     };
-    buzzered = fetch('http://h2922469.stratoserver.net:43173/if_text_show', requestOptions)
+    buzzered = fetch(url+'/if_text_show', requestOptions)
     .then((response) => response.json())
     .then((data) => make_divs_player_stats_divs_if_text_show(data));
 }
@@ -95,21 +98,21 @@ function toggle_visibility(x, y){
     const requestOptions = {
         method: 'PUT'
     };
-    buzzered = fetch('http://h2922469.stratoserver.net:43173/visited?x='+x+'&y='+y, requestOptions)
+    buzzered = fetch(url+'/visited?x='+x+'&y='+y, requestOptions)
 }
 
 function close_panel(x, y){
     const requestOptions = {
         method: 'PUT'
     };
-    buzzered = fetch('http://h2922469.stratoserver.net:43173/close_panel?x='+x+'&y='+y, requestOptions)
+    buzzered = fetch(url+'/close_panel?x='+x+'&y='+y, requestOptions)
 }
 
 function open_panel(x, y){
     const requestOptions = {
         method: 'PUT'
     };
-    buzzered = fetch('http://h2922469.stratoserver.net:43173/open_panel?x='+x+'&y='+y, requestOptions)
+    buzzered = fetch(url+'/open_panel?x='+x+'&y='+y, requestOptions)
 }
 
 function open_panel_make_div(data){
@@ -133,7 +136,7 @@ function get_open_panel(){
     const requestOptions = {
         method: 'GET'
     };
-    buzzered = fetch('http://h2922469.stratoserver.net:43173/get_open_panel', requestOptions)
+    buzzered = fetch(url+'/get_open_panel', requestOptions)
     .then((response) => response.json())
     .then((data) => open_panel_make_div(data));
 }
@@ -155,7 +158,7 @@ function refresh_feld(){
     const requestOptions = {
         method: 'GET'
     };
-    buzzered = fetch('http://h2922469.stratoserver.net:43173/feld', requestOptions)
+    buzzered = fetch(url+'/feld', requestOptions)
     .then((response) => response.json())
     .then((data) => make_feld(data));
 }
@@ -176,7 +179,7 @@ function refresh_player_cams(){
     const requestOptions = {
         method: 'GET'
     };
-    buzzered = fetch('http://h2922469.stratoserver.net:43173/player', requestOptions)
+    buzzered = fetch(url+'/player', requestOptions)
     .then((response) => response.json())
     .then((data) => (refresh_cams(data)));
     refresh_moderators_cams();
@@ -186,7 +189,7 @@ function refresh_moderators_cams(){
     const requestOptions = {
         method: 'GET'
     };
-    buzzered = fetch('http://h2922469.stratoserver.net:43173/moderator', requestOptions)
+    buzzered = fetch(url+'/moderator', requestOptions)
     .then((response) => response.json())
     .then((data) => (refresh_mod_cam(data)));
 }

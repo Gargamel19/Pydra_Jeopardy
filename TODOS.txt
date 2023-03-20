@@ -4,3 +4,6 @@ alle instanzen öfnnen das fragen-panel                                      CHE
 alle instanzen zeigen aktuellen Timer das fragen-panel                      
 nochmal auf fragen-karte drücken wieder umdrehen                            CHECK
 Fragenfenster größe über ganzes Spielfeld                                   CHECK
+
+Embedded loading
+size of card
