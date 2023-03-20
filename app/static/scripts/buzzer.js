@@ -1,5 +1,5 @@
-url = "http://localhost:43173"
-//url = "http://h2922469.stratoserver.net:43173"
+//url = "http://localhost:43173"
+url = "http://h2922469.stratoserver.net:43173"
 
 function set_interval(){
     setInterval(refresh_buzzs, 500);
