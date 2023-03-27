@@ -7,6 +7,7 @@ function set_interval(){
     setInterval(refresh_if_text_show, 500);
     setInterval(refresh_feld, 500);
     setInterval(refresh_player_cams, 500);
+    setInterval(refresh_moderators_cams, 500);
     setInterval(get_open_panel, 500);
 }
 
@@ -193,7 +194,6 @@ function refresh_player_cams(){
     buzzered = fetch(url+'/player', requestOptions)
     .then((response) => response.json())
     .then((data) => (refresh_cams(data)));
-    refresh_moderators_cams();
 }
 
 function refresh_moderators_cams(){
