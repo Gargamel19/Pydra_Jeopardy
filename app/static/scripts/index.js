@@ -6,6 +6,7 @@ function set_interval(){
     setInterval(refresh_texts, 500);
     setInterval(refresh_if_text_show, 500);
     setInterval(refresh_feld, 500);
+    setInterval(refresh_player_cams, 500);
     setInterval(get_open_panel, 500);
 }
 
@@ -163,15 +164,25 @@ function refresh_feld(){
     .then((data) => make_feld(data));
 }
 
+function make_feld_cams(){
+
+}
+
+
 function refresh_cams(players){
     for (let x = 0; x < players.length; x++) {
         const element = players[x];
-        document.getElementById("player_cam_" + element["name"]).src = element["video-link"]
+        obj = document.getElementById("player_cam_" + element["name"])
+        if(element["video-link"] !== obj.src){
+            obj.src = element["video-link"]
+        }
     }
 }
 
 function refresh_mod_cam(moderator){
-    document.getElementById("mod_cam").src = moderator["video-link"]
+    if(moderator["video-link"] !== document.getElementById("mod_cam").src){
+        document.getElementById("mod_cam").src = moderator["video-link"]
+    }
 }
 
 
