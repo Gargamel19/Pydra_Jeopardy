@@ -3,7 +3,7 @@
 import sys
 import logging
 logging.basicConfig(stream=sys.stderr)
-sys.path.insert(0,"/var/www/FLASKAPPS/")
+sys.path.insert(0,"/var/www/FLASKAPPS/Pydra_Jeopardy")
 
 from app import app as application
 
