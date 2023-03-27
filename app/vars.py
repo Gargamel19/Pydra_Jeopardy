@@ -1,4 +1,4 @@
-rows=["Matt in x", "Gabeln", "Spieße", "Figurengewinne", "Fickungen"]
+rows=["Matt in x", "Gabeln", "Spiesse", "Figurengewinne", "Fickungen"]
 columns=[100, 200, 300, 400, 500]
 Moderator={
     "name": "Pydracor",
