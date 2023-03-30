@@ -1,43 +1,19 @@
-rows=["Matt in x", "Gabeln", "Spiesse", "Figurengewinne", "Fickungen"]
-columns=[100, 200, 300, 400, 500]
-Moderator={
-    "name": "Pydracor",
-    "video-link": "https://vdo.ninja/?view=G3wApLj",
-    "id": "lkasudfh"
-}
-Spieler=[
-    {
-        "name": "Robertyaa",
-        "video-link": "https://vdo.ninja/?view=G3wApLj",
-        "punkte": 0,
-        "text": "",
-        "id": "slhjdfg"
-    },
-    {
-        "name": "FettarmQP",
-        "video-link": "https://vdo.ninja/?view=G3wApLj",
-        "punkte": 0,
-        "text": "",
-        "id": "iuawekhjd"
-    },
-    {
-        "name": "SonnengottRa",
-        "video-link": "https://vdo.ninja/?view=G3wApLj",
-        "punkte": 0,
-        "text": "Hallo",
-        "id": "kujfhw"
-    },
-    {
-        "name": "KugelBuch",
-        "video-link": "https://vdo.ninja/?view=G3wApLj",
-        "punkte": 0,
-        "text": "",
-        "id": "luiaztgiklzw"
-    },
-]
-feld=[]
-Buzzered=[]
-button_free=True
-text_free=True
-text_show=True
-open_panel=[]
+import json
+
+filename = "gamestate.json"
+
+def read_gamestate():
+    with open(filename, "r") as file:
+        return json.loads(file.readline())
+
+def get_value(key):
+    gamestate = read_gamestate()
+    return gamestate[key]
+
+def get_gamestate():
+    gamestate = read_gamestate()
+    return gamestate
+
+def save_gamestate(gamestate):
+    with open(filename, "w") as file:
+        return file.writelines(json.dumps(gamestate))

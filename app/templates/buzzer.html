@@ -25,5 +25,7 @@
             </div>
             <input type="button" value="Save" onclick="send_message('{{ player['id'] }}')">
         </div>
+        <input type="text" class="camlink" id="camlink_{{player['name']}}" value="{{player['video-link']}}">
+        <input type="button" class="save_cam_link" value="save" onclick="save_cam_link('{{player['name']}}', '{{player['id']}}')">
     </body>
 </html>
