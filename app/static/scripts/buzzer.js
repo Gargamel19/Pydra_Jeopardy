@@ -14,7 +14,10 @@ function generate_feld(){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
-    fetch(url+'/generate_feld', requestOptions);
+    fetch(url+'/generate_feld', requestOptions)
+    .catch(function() {
+        console.log("error");
+    });
 
 }
 
@@ -47,7 +50,10 @@ function refresh_buzzs(){
     };
     buzzered = fetch(url+'/buzzes', requestOptions)
     .then((response) => response.json())
-    .then((data) => make_divs(data));
+    .then((data) => make_divs(data))
+    .catch(function() {
+        console.log("error");
+    });
 
 }
 
@@ -59,7 +65,10 @@ function buzz(user_id){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
-    fetch(url+'/buzz?user_id='+user_id, requestOptions);
+    fetch(url+'/buzz?user_id='+user_id, requestOptions)
+    .catch(function() {
+        console.log("error");
+    });
 }
 
 function activate_buzzer(){
@@ -70,7 +79,10 @@ function activate_buzzer(){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
-    fetch(url+'/buzz/activate', requestOptions);
+    fetch(url+'/buzz/activate', requestOptions)
+    .catch(function() {
+        console.log("error");
+    });
 
 }
 
@@ -82,7 +94,10 @@ function deactivate_buzzer(){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
-    fetch(url+'/buzz/deactivate', requestOptions);
+    fetch(url+'/buzz/deactivate', requestOptions)
+    .catch(function() {
+        console.log("error");
+    });
 
 }
 
@@ -94,7 +109,10 @@ function activate_texts(){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
-    fetch(url+'/texts/activate', requestOptions);
+    fetch(url+'/texts/activate', requestOptions)
+    .catch(function() {
+        console.log("error");
+    });
 
 }
 
@@ -106,7 +124,10 @@ function deactivate_texts(){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
-    fetch(url+'/texts/deactivate', requestOptions);
+    fetch(url+'/texts/deactivate', requestOptions)
+    .catch(function() {
+        console.log("error");
+    });
 
 }
 
@@ -118,7 +139,10 @@ function reset_buzz_button(){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
-    fetch(url+'/buzz/reset', requestOptions);
+    fetch(url+'/buzz/reset', requestOptions)
+    .catch(function() {
+        console.log("error");
+    });
 
 }
 
@@ -130,7 +154,10 @@ function reset_texts_button(){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
-    fetch(url+'/texts/reset', requestOptions);
+    fetch(url+'/texts/reset', requestOptions)
+    .catch(function() {
+        console.log("error");
+    });
 
 }
 
@@ -165,7 +192,10 @@ function send_message_to_be(user_id, message){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
-    fetch(url+'/set_user_message?user_id='+user_id+'&message=' + message, requestOptions);
+    fetch(url+'/set_user_message?user_id='+user_id+'&message=' + message, requestOptions)
+    .catch(function() {
+        console.log("error");
+    });
 }
 
 function give_player_points(user_id, points){
@@ -176,7 +206,10 @@ function give_player_points(user_id, points){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
-    fetch(url+'/add_points?user_id='+user_id+'&points=' + points, requestOptions);
+    fetch(url+'/add_points?user_id='+user_id+'&points=' + points, requestOptions)
+    .catch(function() {
+        console.log("error");
+    });
 }
 
 function save_cam_link(user_name, user_id){
@@ -189,7 +222,10 @@ function save_cam_link(user_name, user_id){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
-    fetch(url+'/save_cam_link?user_id='+user_id+'&cam_link=' + cam_link_input, requestOptions);
+    fetch(url+'/save_cam_link?user_id='+user_id+'&cam_link=' + cam_link_input, requestOptions)
+    .catch(function() {
+        console.log("error");
+    });
 }
 
 function save_cam_link_moderator(){
@@ -202,7 +238,10 @@ function save_cam_link_moderator(){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
-    fetch(url+'/save_cam_link_mod?cam_link=' + cam_link_input, requestOptions);
+    fetch(url+'/save_cam_link_mod?cam_link=' + cam_link_input, requestOptions)
+    .catch(function() {
+        console.log("error");
+    });
 }
 
 function make_divs_texts_mod(players){
@@ -218,7 +257,10 @@ function refresh_texts_mod(){
     };
     buzzered = fetch(url+'/player', requestOptions)
     .then((response) => response.json())
-    .then((data) => make_divs_texts_mod(data));
+    .then((data) => make_divs_texts_mod(data))
+    .catch(function() {
+        console.log("error");
+    });
 
 
 }

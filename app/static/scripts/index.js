@@ -42,7 +42,10 @@ function refresh_buzzs(){
     };
     buzzered = fetch(url+'/buzzes', requestOptions)
     .then((response) => response.json())
-    .then((data) => make_divs_buzzed(data));
+    .then((data) => make_divs_buzzed(data))
+    .catch(function() {
+        console.log("error");
+    });
 
 }
 
@@ -59,7 +62,10 @@ function refresh_texts(){
     };
     buzzered = fetch(url+'/player', requestOptions)
     .then((response) => response.json())
-    .then((data) => make_divs_player_stats_divs(data));
+    .then((data) => make_divs_player_stats_divs(data))
+    .catch(function() {
+        console.log("error");
+    });
 }
 
 
@@ -83,7 +89,10 @@ function refresh_if_text_show(){
     };
     buzzered = fetch(url+'/if_text_show', requestOptions)
     .then((response) => response.json())
-    .then((data) => make_divs_player_stats_divs_if_text_show(data));
+    .then((data) => make_divs_player_stats_divs_if_text_show(data))
+    .catch(function() {
+        console.log("error");
+    });
 }
 
 function open_this_panel(x, y){
@@ -108,6 +117,9 @@ function close_panel(x, y){
         method: 'PUT'
     };
     buzzered = fetch(url+'/close_panel?x='+x+'&y='+y, requestOptions)
+    .catch(function() {
+        console.log("error");
+    });
 }
 
 function open_panel(x, y){
@@ -115,6 +127,9 @@ function open_panel(x, y){
         method: 'PUT'
     };
     buzzered = fetch(url+'/open_panel?x='+x+'&y='+y, requestOptions)
+    .catch(function() {
+        console.log("error");
+    });
 }
 
 function open_panel_make_div(data){
@@ -140,7 +155,10 @@ function get_open_panel(){
     };
     buzzered = fetch(url+'/get_open_panel', requestOptions)
     .then((response) => response.json())
-    .then((data) => open_panel_make_div(data));
+    .then((data) => open_panel_make_div(data))
+    .catch(function() {
+        console.log("error");
+    });
 }
 
 function make_feld(data){
@@ -162,7 +180,10 @@ function refresh_feld(){
     };
     buzzered = fetch(url+'/feld', requestOptions)
     .then((response) => response.json())
-    .then((data) => make_feld(data));
+    .then((data) => make_feld(data))
+    .catch(function() {
+        console.log("error");
+    });
 }
 
 function make_feld_cams(){
@@ -193,7 +214,10 @@ function refresh_player_cams(){
     };
     buzzered = fetch(url+'/player', requestOptions)
     .then((response) => response.json())
-    .then((data) => (refresh_cams(data)));
+    .then((data) => (refresh_cams(data)))
+    .catch(function() {
+        console.log("error");
+    });
 }
 
 function refresh_moderators_cams(){
@@ -202,5 +226,8 @@ function refresh_moderators_cams(){
     };
     buzzered = fetch(url+'/moderator', requestOptions)
     .then((response) => response.json())
-    .then((data) => (refresh_mod_cam(data)));
+    .then((data) => (refresh_mod_cam(data)))
+    .catch(function() {
+        console.log("error");
+    });
 }
